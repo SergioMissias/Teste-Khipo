@@ -1,0 +1,27 @@
+unit Controller.CRUD;
+
+interface
+
+uses Horse, System.JSON, System.SysUtils,
+     FireDAC.Comp.Client, Data.DB, DataSet.Serialize, Model.CRUD;
+
+
+procedure Registry;
+
+implementation
+
+
+procedure Incluir(req:THorseRequest ; Res:THorseResponse ; Next:TProc);
+var
+inc : TCRUD_unico;
+begin
+
+end;
+
+
+
+
+
+
+
+end.

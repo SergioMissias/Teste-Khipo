@@ -1,0 +1,132 @@
+unit Model.CRUD;
+
+interface
+
+
+USES  System.SysUtils, u_Dm ;
+
+
+
+implementation
+
+uses
+  FireDAC.Comp.Client, System.Classes;
+ type
+
+   TCRUD_unico = Class
+
+   private
+    FCrud: String;
+    FTabela: string;
+    FCampos: String;
+    Fid: int64;
+    FValores: string;
+    procedure SetCampos(const Value: String);
+    procedure SetCrud(const Value: String);
+    procedure Setid(const Value: int64);
+    procedure SetTabela(const Value: string);
+    procedure SetValores(const Value: String);
+
+   public
+
+     property Tabela:string read FTabela write SetTabela;
+     property Campos:String read FCampos write SetCampos;
+     property Crud : String read FCrud write SetCrud;
+     property valores:String read Fvalores write Setvalores;
+     property id:int64 read Fid write Setid;
+     function Executar_CRUD:String;
+     constructor Create;
+     destructor Destroy; override;
+
+
+
+
+ End;
+
+
+
+
+{ TCRUD_unico }
+
+constructor TCRUD_unico.Create;
+begin
+ //  VALORES:= TStringList.Create;
+end;
+
+destructor TCRUD_unico.Destroy;
+begin
+//  VALORES.Free;
+  inherited;
+end;
+
+function TCRUD_unico.Executar_CRUD: String;
+var
+Fdq_Query : TFDQuery;
+St_Campos : TStringList;
+I: integer;
+sinal:string;
+begin
+    try
+
+       Fdq_Query := TFDQuery.Create(nil);
+       St_Campos := TStringList.Create;
+       ExtractStrings(['-'], [], PChar(Campos),St_Campos);
+
+
+        if crud='I' then
+           begin
+             Fdq_Query.Close;
+             Fdq_Query.SQL.add('Insert into'+ Tabela+' (');
+             for I := 0 to St_Campos.Count do
+               begin
+
+                  if i>0 then
+                    begin
+                       sinal := ',';
+                    end
+                 else
+                   if i=St_Campos.Count then
+                     begin
+                        sinal:='';
+                     end;
+
+                  Fdq_Query.SQL.add(' '+St_Campos[i]+sinal);
+               end;
+             Fdq_Query.SQL.add(' )');
+             Fdq_Query.SQL.add(' Values ('+Valores+')');
+           end;
+
+           Fdq_Query.ExecSQL;
+
+    finally
+       Fdq_Query.Free;
+    end;
+
+end;
+
+procedure TCRUD_unico.SetCampos(const Value: String);
+begin
+  FCampos := Value;
+end;
+
+procedure TCRUD_unico.SetCrud(const Value: String);
+begin
+  FCrud := Value;
+end;
+
+procedure TCRUD_unico.Setid(const Value: int64);
+begin
+  Fid := Value;
+end;
+
+procedure TCRUD_unico.SetTabela(const Value: string);
+begin
+  FTabela := Value;
+end;
+
+procedure TCRUD_unico.SetValores(const Value: String);
+begin
+  FValores := Value;
+end;
+
+end.

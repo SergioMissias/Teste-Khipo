@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2024/03/10 15:35:49.864,=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2024/03/10 15:56:33.472,=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2024/03/10 15:56:58.767,F:\Teste Khipo\Aplicacao\DAO\DM.dfm=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit5.dfm</Transaction>
+    <Transaction>2024/03/10 15:56:58.767,F:\Teste Khipo\Aplicacao\DAO\DM.pas=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2024/03/10 15:57:32.964,F:\Teste Khipo\Aplicacao\prjTesteKhipo.fmx=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit4.fmx</Transaction>
+    <Transaction>2024/03/10 15:57:32.964,F:\Teste Khipo\Aplicacao\prjTesteKhipo.pas=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2024/03/10 15:58:34.136,F:\Teste Khipo\Aplicacao\u_frmPrincipal.fmx=F:\Teste Khipo\Aplicacao\prjTesteKhipo.fmx</Transaction>
+    <Transaction>2024/03/10 15:58:34.136,F:\Teste Khipo\Aplicacao\u_frmPrincipal.pas=F:\Teste Khipo\Aplicacao\prjTesteKhipo.pas</Transaction>
+    <Transaction>2024/03/10 15:58:50.200,F:\Teste Khipo\Aplicacao\prjTesteKhipo.pas=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Project4.dproj</Transaction>
+    <Transaction>2024/03/10 15:59:29.009,F:\Teste Khipo\Aplicacao\prjTesteKhipo.pas=F:\Teste Khipo\Aplicacao\prjTesteKhipo.pas</Transaction>
+  </Transactions>
+</BorlandProject>

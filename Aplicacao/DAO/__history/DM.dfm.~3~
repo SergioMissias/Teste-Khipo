@@ -1,0 +1,49 @@
+object DM_app: TDM_app
+  Height = 304
+  Width = 582
+  object RESTClient1: TRESTClient
+    BaseURL = 'http://192.168.1.202:9000/loginsenha'
+    Params = <>
+    Left = 256
+    Top = 8
+  end
+  object RESTRequest1: TRESTRequest
+    AssignedValues = [rvConnectTimeout, rvReadTimeout]
+    Client = RESTClient1
+    Method = rmPOST
+    Params = <
+      item
+        Kind = pkREQUESTBODY
+        Name = 'body86A666056D0E43E19FF095A76FF1FF3D'
+        Value = '{"email":"sergiomissias@gmail.com",'#13#10'"senha":"Sm385211"}'
+        ContentTypeStr = 'application/json'
+      end>
+    Response = RESTResponse1
+    Left = 344
+    Top = 64
+  end
+  object RESTResponse1: TRESTResponse
+    Left = 152
+    Top = 24
+  end
+  object RESTResponseDataSetAdapter1: TRESTResponseDataSetAdapter
+    Dataset = FDMemTableUsuario
+    FieldDefs = <>
+    Response = RESTResponse1
+    TypesMode = Rich
+    Left = 72
+    Top = 56
+  end
+  object FDMemTableUsuario: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvUpdateChngFields, uvUpdateMode, uvLockMode, uvLockPoint, uvLockWait, uvRefreshMode, uvFetchGeneratorsPoint, uvCheckRequired, uvCheckReadOnly, uvCheckUpdatable]
+    UpdateOptions.LockWait = True
+    UpdateOptions.FetchGeneratorsPoint = gpNone
+    UpdateOptions.CheckRequired = False
+    Left = 160
+    Top = 112
+  end
+end

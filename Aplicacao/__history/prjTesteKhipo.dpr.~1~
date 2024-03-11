@@ -1,0 +1,16 @@
+program prjTesteKhipo;
+
+uses
+  System.StartUpCopy,
+  FMX.Forms,
+  u_frmPrincipal in 'u_frmPrincipal.pas' {Form4},
+  DM in 'DAO\DM.pas' {DataModule5: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.CreateForm(TForm4, Form4);
+  Application.CreateForm(TDataModule5, DataModule5);
+  Application.Run;
+end.

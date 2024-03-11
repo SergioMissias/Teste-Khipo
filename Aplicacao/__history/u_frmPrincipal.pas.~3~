@@ -1,0 +1,68 @@
+unit u_frmPrincipal;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Edit, FMX.Controls.Presentation, FMX.Objects, FMX.TabControl, FMX.Layouts;
+
+type
+  TForm4 = class(TForm)
+    Layout1: TLayout;
+    TabControl1: TTabControl;
+    TabItem1: TTabItem;
+    TabItem2: TTabItem;
+    Rectangle1: TRectangle;
+    btnLogin: TButton;
+    edt_Usuario: TEdit;
+    Label1: TLabel;
+    edtSenha: TEdit;
+    Label2: TLabel;
+    EdtLinha: TEdit;
+    Label3: TLabel;
+    procedure btnLoginClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form4: TForm4;
+
+implementation
+
+uses
+  System.JSON,DM, REST.Types;
+
+{$R *.fmx}
+
+procedure TForm4.btnLoginClick(Sender: TObject);
+var
+body:TJSONObject;
+json:string;
+begin
+  body := TJSONObject.Create;
+  body.AddPair('email',edt_Usuario.Text);
+  body.AddPair('senha',edtSenha.Text);
+ json := body.ToString;
+ DM_app.RESTRequest1.ContentType.ctAPPLICATION_JSON;
+ DM_app.RESTRequest1.Body.ClearBody;
+ DM_app.RESTRequest1.Method := rmPOST;
+ DM_app.RESTRequest1.AddBody(body.ToString,ctAPPLICATION_JSON) ;
+ DM_app.RESTRequest1.Resource := '/loginsenha';
+ DM_app.RESTRequest1.Execute;
+ if DM_app.RESTRequest1.Response.StatusCode = 201 then
+    begin
+       Label3.Text := DM_app.FDMemTableUsuario.FieldByName('Nick_name').AsString ;
+
+
+    end;
+
+end;
+
+
+
+
+end.

@@ -1,0 +1,16 @@
+program Servidor_Horse_Teste_Ghipo;
+
+uses
+  Vcl.Forms,
+  u_ProjetoTesteGhipo in 'View\u_ProjetoTesteGhipo.pas' {Form4},
+  u_Dm in 'DAO\u_Dm.pas' {DataModule5: TDataModule};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm4, Form4);
+  Application.CreateForm(TDataModule5, DataModule5);
+  Application.Run;
+end.

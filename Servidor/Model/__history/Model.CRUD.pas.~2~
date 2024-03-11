@@ -1,0 +1,106 @@
+unit Model.CRUD;
+
+interface
+
+
+USES  System.SysUtils, u_Dm ;
+
+
+
+implementation
+
+uses
+  FireDAC.Comp.Client, System.Classes;
+ type
+
+   T_CRUD_unico = Class
+
+   private
+    FCrud: String;
+    FTabela: string;
+    FCampos: String;
+    Fid: int64;
+    procedure SetCampos(const Value: String);
+    procedure SetCrud(const Value: String);
+    procedure Setid(const Value: int64);
+    procedure SetTabela(const Value: string);
+
+   public
+
+     property Tabela:string read FTabela write SetTabela;
+     property Campos:String read FCampos write SetCampos;
+     property Crud : String read FCrud write SetCrud;
+     property id:int64 read Fid write Setid;
+     function Executar_CRUD:String;
+     constructor Create;
+     destructor Destroy; override;
+
+
+
+
+ End;
+
+
+
+
+{ T_CRUD_unico }
+
+constructor T_CRUD_unico.Create;
+begin
+
+end;
+
+destructor T_CRUD_unico.Destroy;
+begin
+
+  inherited;
+end;
+
+function T_CRUD_unico.Executar_CRUD: String;
+var
+Fdq_Query : TFDQuery;
+St_Campos : TStringList;
+begin
+    try
+
+       Fdq_Query := TFDQuery.Create(nil);
+       St_Campos := TStringList.Create;
+
+       St_Campos :=
+        if crud='I' then
+           begin
+
+
+
+
+
+
+           end;
+
+    finally
+
+    end;
+
+end;
+
+procedure T_CRUD_unico.SetCampos(const Value: String);
+begin
+  FCampos := Value;
+end;
+
+procedure T_CRUD_unico.SetCrud(const Value: String);
+begin
+  FCrud := Value;
+end;
+
+procedure T_CRUD_unico.Setid(const Value: int64);
+begin
+  Fid := Value;
+end;
+
+procedure T_CRUD_unico.SetTabela(const Value: string);
+begin
+  FTabela := Value;
+end;
+
+end.

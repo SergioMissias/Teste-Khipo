@@ -1,0 +1,4 @@
+object DataModule5: TDataModule5
+  Height = 229
+  Width = 278
+end

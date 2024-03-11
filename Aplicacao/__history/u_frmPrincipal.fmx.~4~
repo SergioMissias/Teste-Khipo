@@ -1,0 +1,188 @@
+object Form4: TForm4
+  Left = 0
+  Top = 0
+  Caption = 'Form4'
+  ClientHeight = 486
+  ClientWidth = 339
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object TabControl1: TTabControl
+    Align = Client
+    Size.Width = 339.000000000000000000
+    Size.Height = 486.000000000000000000
+    Size.PlatformDefault = False
+    TabIndex = 0
+    TabOrder = 0
+    TabPosition = PlatformDefault
+    Sizes = (
+      339s
+      460s
+      339s
+      460s)
+    object TabItem1: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = True
+      Size.Width = 69.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem1'
+      ExplicitSize.cx = 69.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object Layout1: TLayout
+        Align = Client
+        Size.Width = 339.000000000000000000
+        Size.Height = 460.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        object Rectangle1: TRectangle
+          Align = Client
+          Fill.Color = xFFCCBF8E
+          Margins.Left = 1.000000000000000000
+          Margins.Top = 30.000000000000000000
+          Margins.Right = 1.000000000000000000
+          Margins.Bottom = 30.000000000000000000
+          Size.Width = 337.000000000000000000
+          Size.Height = 400.000000000000000000
+          Size.PlatformDefault = False
+          Stroke.Kind = None
+          XRadius = 10.000000000000000000
+          YRadius = 10.000000000000000000
+          object btnLogin: TButton
+            Align = Top
+            StyledSettings = [Family]
+            Margins.Left = 40.000000000000000000
+            Margins.Top = 10.000000000000000000
+            Margins.Right = 40.000000000000000000
+            Margins.Bottom = 10.000000000000000000
+            Position.X = 40.000000000000000000
+            Position.Y = 154.000000000000000000
+            Size.Width = 257.000000000000000000
+            Size.Height = 56.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 3
+            Text = 'Login'
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claBrown
+            OnClick = btnLoginClick
+          end
+          object edt_Usuario: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = MostTop
+            TabOrder = 0
+            KeyboardType = NumberPad
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claBrown
+            Position.X = 20.000000000000000000
+            Position.Y = 40.000000000000000000
+            Margins.Left = 20.000000000000000000
+            Margins.Top = 40.000000000000000000
+            Margins.Right = 20.000000000000000000
+            Size.Width = 297.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            TextPrompt = 'Informe Matricula Aqui'
+            StyledSettings = [Family]
+            object Label1: TLabel
+              StyledSettings = []
+              Position.Y = -32.000000000000000000
+              Size.Width = 129.000000000000000000
+              Size.Height = 32.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Family = 'Verdana'
+              TextSettings.Font.Size = 18.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Text = 'Email:'
+              TabOrder = 0
+            end
+          end
+          object edtSenha: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Top
+            TabOrder = 1
+            KeyboardType = NumberPad
+            Password = True
+            MaxLength = 8
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claBrown
+            Position.X = 20.000000000000000000
+            Position.Y = 112.000000000000000000
+            Margins.Left = 20.000000000000000000
+            Margins.Top = 40.000000000000000000
+            Margins.Right = 20.000000000000000000
+            Size.Width = 297.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            TextPrompt = 'Informe a Senha Aqui'
+            StyledSettings = [Family]
+            object Label2: TLabel
+              StyledSettings = []
+              Position.Y = -36.000000000000000000
+              Size.Width = 105.000000000000000000
+              Size.Height = 24.000000000000000000
+              Size.PlatformDefault = False
+              TextSettings.Font.Family = 'Verdana'
+              TextSettings.Font.Size = 18.000000000000000000
+              TextSettings.Font.StyleExt = {00070000000000000004000000}
+              Text = 'Senha :'
+              TabOrder = 1
+            end
+          end
+          object EdtLinha: TEdit
+            Touch.InteractiveGestures = [LongTap, DoubleTap]
+            Align = Top
+            TabOrder = 2
+            KeyboardType = NumberPad
+            TextSettings.Font.Family = '(Default)'
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.Font.StyleExt = {00070000000000000004000000}
+            TextSettings.FontColor = claBrown
+            Position.X = 20.000000000000000000
+            Position.Y = 184.000000000000000000
+            Margins.Left = 20.000000000000000000
+            Margins.Top = 40.000000000000000000
+            Margins.Right = 20.000000000000000000
+            Size.Width = 276.000000000000000000
+            Size.Height = 32.000000000000000000
+            Size.PlatformDefault = False
+            TextPrompt = 'Informe Linha Aqui'
+            StyledSettings = [Size]
+            Visible = False
+          end
+          object Label3: TLabel
+            Align = Bottom
+            Margins.Bottom = 20.000000000000000000
+            Position.Y = 363.000000000000000000
+            Size.Width = 337.000000000000000000
+            Size.Height = 17.000000000000000000
+            Size.PlatformDefault = False
+            Text = 'Label3'
+            TabOrder = 4
+          end
+        end
+      end
+    end
+    object TabItem2: TTabItem
+      CustomIcon = <
+        item
+        end>
+      IsSelected = False
+      Size.Width = 69.000000000000000000
+      Size.Height = 26.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = ''
+      TabOrder = 0
+      Text = 'TabItem2'
+      ExplicitSize.cx = 69.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+    end
+  end
+end
