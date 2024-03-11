@@ -2,38 +2,39 @@ object Form4: TForm4
   Left = 0
   Top = 0
   Caption = 'Form4'
-  ClientHeight = 514
+  ClientHeight = 537
   ClientWidth = 487
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
   DesignerMasterStyle = 0
   object TabControl1: TTabControl
     Align = Client
     Size.Width = 487.000000000000000000
-    Size.Height = 514.000000000000000000
+    Size.Height = 537.000000000000000000
     Size.PlatformDefault = False
-    TabIndex = 1
+    TabIndex = 0
     TabOrder = 0
     TabPosition = PlatformDefault
     Sizes = (
       487s
-      488s
+      511s
       487s
-      488s
+      511s
       487s
-      488s
+      511s
       487s
-      488s
+      511s
       487s
-      488s
+      511s
       487s
-      488s)
+      511s)
     object TabItem1: TTabItem
       CustomIcon = <
         item
         end>
-      IsSelected = False
+      IsSelected = True
       Size.Width = 69.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
@@ -45,7 +46,7 @@ object Form4: TForm4
       object Layout1: TLayout
         Align = Client
         Size.Width = 487.000000000000000000
-        Size.Height = 488.000000000000000000
+        Size.Height = 511.000000000000000000
         Size.PlatformDefault = False
         TabOrder = 0
         object Rectangle1: TRectangle
@@ -56,7 +57,7 @@ object Form4: TForm4
           Margins.Right = 1.000000000000000000
           Margins.Bottom = 30.000000000000000000
           Size.Width = 485.000000000000000000
-          Size.Height = 428.000000000000000000
+          Size.Height = 451.000000000000000000
           Size.PlatformDefault = False
           Stroke.Kind = None
           XRadius = 10.000000000000000000
@@ -168,7 +169,7 @@ object Form4: TForm4
           object Label3: TLabel
             Align = Bottom
             Margins.Bottom = 20.000000000000000000
-            Position.Y = 391.000000000000000000
+            Position.Y = 414.000000000000000000
             Size.Width = 485.000000000000000000
             Size.Height = 17.000000000000000000
             Size.PlatformDefault = False
@@ -182,7 +183,7 @@ object Form4: TForm4
       CustomIcon = <
         item
         end>
-      IsSelected = True
+      IsSelected = False
       Size.Width = 69.000000000000000000
       Size.Height = 26.000000000000000000
       Size.PlatformDefault = False
@@ -198,7 +199,7 @@ object Form4: TForm4
         Margins.Right = 10.000000000000000000
         Margins.Bottom = 10.000000000000000000
         Size.Width = 467.000000000000000000
-        Size.Height = 468.000000000000000000
+        Size.Height = 491.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
         XRadius = 10.000000000000000000
@@ -306,6 +307,8 @@ object Form4: TForm4
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabItem3'
+      ExplicitSize.cx = 69.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
       object Rectangle6: TRectangle
         Align = Client
         Margins.Left = 10.000000000000000000
@@ -313,7 +316,7 @@ object Form4: TForm4
         Margins.Right = 10.000000000000000000
         Margins.Bottom = 10.000000000000000000
         Size.Width = 467.000000000000000000
-        Size.Height = 468.000000000000000000
+        Size.Height = 491.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
         XRadius = 10.000000000000000000
@@ -412,6 +415,8 @@ object Form4: TForm4
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabItem4'
+      ExplicitSize.cx = 69.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
       object Rectangle10: TRectangle
         Align = Client
         Fill.Color = xFFA87575
@@ -420,7 +425,7 @@ object Form4: TForm4
         Margins.Right = 10.000000000000000000
         Margins.Bottom = 10.000000000000000000
         Size.Width = 467.000000000000000000
-        Size.Height = 468.000000000000000000
+        Size.Height = 491.000000000000000000
         Size.PlatformDefault = False
         Stroke.Kind = None
         XRadius = 10.000000000000000000
@@ -615,7 +620,7 @@ object Form4: TForm4
         end
         object Rectangle12: TRectangle
           Align = Bottom
-          Position.Y = 418.000000000000000000
+          Position.Y = 441.000000000000000000
           Size.Width = 467.000000000000000000
           Size.Height = 50.000000000000000000
           Size.PlatformDefault = False
@@ -645,6 +650,8 @@ object Form4: TForm4
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabItem5'
+      ExplicitSize.cx = 69.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
       object Rectangle13: TRectangle
         Align = Bottom
         Fill.Color = xFFA87575
@@ -653,7 +660,7 @@ object Form4: TForm4
         Margins.Right = 10.000000000000000000
         Margins.Bottom = 10.000000000000000000
         Position.X = 10.000000000000000000
-        Position.Y = 19.000000000000000000
+        Position.Y = 42.000000000000000000
         Size.Width = 467.000000000000000000
         Size.Height = 459.000000000000000000
         Size.PlatformDefault = False
@@ -665,188 +672,46 @@ object Form4: TForm4
           Anchors = [akTop, akBottom]
           Margins.Top = 10.000000000000000000
           Size.Width = 379.000000000000000000
-          Size.Height = 417.000000000000000000
+          Size.Height = 392.000000000000000000
           Size.PlatformDefault = False
           TabOrder = 0
-          object Layout10: TLayout
+          object Layout13: TLayout
             Align = Top
             Position.Y = 50.000000000000000000
             Size.Width = 379.000000000000000000
-            Size.Height = 80.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 3
-            object Label15: TLabel
-              Align = Top
-              StyledSettings = [Family, Style, FontColor]
-              Margins.Top = 5.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 379.000000000000000000
-              Size.Height = 28.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.HorzAlign = Center
-              Text = 'Descri'#231#227'o'
-              TabOrder = 0
-            end
-            object Edit1: TEdit
-              Touch.InteractiveGestures = [LongTap, DoubleTap]
-              Align = Top
-              TabOrder = 1
-              TextSettings.Font.Family = 'Verdana'
-              TextSettings.Font.Size = 18.000000000000000000
-              Position.X = 5.000000000000000000
-              Position.Y = 38.000000000000000000
-              Margins.Left = 5.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 5.000000000000000000
-              Size.Width = 369.000000000000000000
-              Size.Height = 40.000000000000000000
-              Size.PlatformDefault = False
-              StyledSettings = [Style, FontColor]
-            end
-          end
-          object Layout11: TLayout
-            Align = Top
-            Position.Y = 130.000000000000000000
-            Size.Width = 379.000000000000000000
-            Size.Height = 80.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 2
-            object Label16: TLabel
-              Align = Top
-              StyledSettings = [Family, Style, FontColor]
-              Margins.Top = 5.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 379.000000000000000000
-              Size.Height = 28.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.HorzAlign = Center
-              Text = 'Valor de Venda'
-              TabOrder = 0
-            end
-            object Edit3: TEdit
-              Touch.InteractiveGestures = [LongTap, DoubleTap]
-              Align = Top
-              TabOrder = 1
-              KeyboardType = DecimalNumberPad
-              TextSettings.Font.Family = 'Verdana'
-              TextSettings.Font.Size = 18.000000000000000000
-              Position.X = 5.000000000000000000
-              Position.Y = 38.000000000000000000
-              Margins.Left = 5.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 5.000000000000000000
-              Size.Width = 369.000000000000000000
-              Size.Height = 40.000000000000000000
-              Size.PlatformDefault = False
-              StyledSettings = [Style, FontColor]
-            end
-          end
-          object Layout12: TLayout
-            Align = Top
-            Position.Y = 210.000000000000000000
-            Size.Width = 379.000000000000000000
-            Size.Height = 80.000000000000000000
-            Size.PlatformDefault = False
-            TabOrder = 1
-            object Label17: TLabel
-              Align = Top
-              StyledSettings = [Family, Style, FontColor]
-              Margins.Top = 5.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 379.000000000000000000
-              Size.Height = 28.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.HorzAlign = Center
-              Text = 'Unidade de Medida'
-              TabOrder = 0
-            end
-            object Edit4: TEdit
-              Touch.InteractiveGestures = [LongTap, DoubleTap]
-              Align = Top
-              TabOrder = 1
-              Text = 'UN'
-              TextSettings.Font.Family = 'Verdana'
-              TextSettings.Font.Size = 18.000000000000000000
-              Position.X = 150.000000000000000000
-              Position.Y = 38.000000000000000000
-              Margins.Left = 150.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 150.000000000000000000
-              Size.Width = 79.000000000000000000
-              Size.Height = 38.000000000000000000
-              Size.PlatformDefault = False
-              StyledSettings = [Style, FontColor]
-            end
-          end
-          object Layout13: TLayout
-            Align = Top
-            Position.Y = 290.000000000000000000
-            Size.Width = 379.000000000000000000
-            Size.Height = 80.000000000000000000
+            Size.Height = 311.000000000000000000
             Size.PlatformDefault = False
             TabOrder = 0
-            object Label18: TLabel
-              Align = Top
-              StyledSettings = [Family, Style, FontColor]
-              Margins.Top = 5.000000000000000000
-              Position.Y = 5.000000000000000000
-              Size.Width = 379.000000000000000000
-              Size.Height = 28.000000000000000000
-              Size.PlatformDefault = False
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.HorzAlign = Center
-              Text = 'Categoria'
-              TabOrder = 0
-            end
-            object Edit5: TEdit
-              Touch.InteractiveGestures = [LongTap, DoubleTap]
-              Align = Top
-              TabOrder = 1
-              Text = 'Tintas'
-              TextSettings.Font.Family = 'Verdana'
-              TextSettings.Font.Size = 18.000000000000000000
-              Position.X = 5.000000000000000000
-              Position.Y = 38.000000000000000000
-              Enabled = False
-              Margins.Left = 5.000000000000000000
-              Margins.Top = 5.000000000000000000
-              Margins.Right = 5.000000000000000000
-              Size.Width = 369.000000000000000000
-              Size.Height = 46.000000000000000000
-              Size.PlatformDefault = False
-              StyledSettings = [Style, FontColor]
-            end
-          end
-          object Rectangle14: TRectangle
-            Align = Top
-            Fill.Color = xFF3B48F0
-            Margins.Left = 30.000000000000000000
-            Margins.Top = 30.000000000000000000
-            Margins.Right = 30.000000000000000000
-            Position.X = 30.000000000000000000
-            Position.Y = 400.000000000000000000
-            Size.Width = 319.000000000000000000
-            Size.Height = 50.000000000000000000
-            Size.PlatformDefault = False
-            XRadius = 10.000000000000000000
-            YRadius = 10.000000000000000000
-            OnClick = Rectangle11Click
-            object Label19: TLabel
+            object ListView_Produtos: TListView
+              ItemAppearanceClassName = 'TDynamicAppearance'
+              ItemEditAppearanceClassName = 'TDynamicAppearance'
+              HeaderAppearanceClassName = 'TListHeaderObjects'
+              FooterAppearanceClassName = 'TListHeaderObjects'
               Align = Client
-              StyledSettings = [Style, FontColor]
-              Locked = True
-              HitTest = True
-              Size.Width = 319.000000000000000000
-              Size.Height = 50.000000000000000000
+              Size.Width = 379.000000000000000000
+              Size.Height = 311.000000000000000000
               Size.PlatformDefault = False
-              TextSettings.Font.Family = 'Verdana'
-              TextSettings.Font.Size = 18.000000000000000000
-              TextSettings.HorzAlign = Center
-              Text = 'Gravar'
               TabOrder = 0
+              ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+                item
+                  AppearanceObjectName = 'Text1'
+                  AppearanceClassName = 'TTextObjectAppearance'
+                  Appearance.Width = 151.000000000000000000
+                  Appearance.Height = 41.000000000000000000
+                end
+                item
+                  AppearanceObjectName = 'Text2'
+                  AppearanceClassName = 'TTextObjectAppearance'
+                  Appearance.Width = 193.000000000000000000
+                  Appearance.Height = 41.000000000000000000
+                  Appearance.PlaceOffset.X = 150.000000000000000000
+                end>
+              ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+                item
+                  AppearanceObjectName = 'Text1'
+                  AppearanceClassName = 'TTextObjectAppearance'
+                end>
+              OnItemClick = ListView_ProdutosItemClick
             end
           end
           object Rectangle16: TRectangle
@@ -865,6 +730,14 @@ object Form4: TForm4
               Size.PlatformDefault = False
               TextPrompt = 'Informe a Descricao'
               StyledSettings = [Style, FontColor]
+            end
+            object SpeedButton1: TSpeedButton
+              Position.X = 289.000000000000000000
+              Position.Y = 8.000000000000000000
+              Size.Width = 80.000000000000000000
+              Size.Height = 34.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'SpeedButton1'
             end
           end
         end
@@ -900,6 +773,117 @@ object Form4: TForm4
       StyleLookup = ''
       TabOrder = 0
       Text = 'TabItem6'
+      ExplicitSize.cx = 69.000000000000000000
+      ExplicitSize.cy = 26.000000000000000000
+      object Rectangle14: TRectangle
+        Align = Bottom
+        Fill.Color = xFFA87575
+        Margins.Left = 10.000000000000000000
+        Margins.Top = 10.000000000000000000
+        Margins.Right = 10.000000000000000000
+        Margins.Bottom = 10.000000000000000000
+        Position.X = 10.000000000000000000
+        Position.Y = 42.000000000000000000
+        Size.Width = 467.000000000000000000
+        Size.Height = 459.000000000000000000
+        Size.PlatformDefault = False
+        Stroke.Kind = None
+        XRadius = 10.000000000000000000
+        YRadius = 10.000000000000000000
+        object Layout10: TLayout
+          Align = Center
+          Anchors = [akTop, akBottom]
+          Margins.Top = 10.000000000000000000
+          Size.Width = 379.000000000000000000
+          Size.Height = 392.000000000000000000
+          Size.PlatformDefault = False
+          TabOrder = 0
+          object Layout11: TLayout
+            Align = Top
+            Position.Y = 50.000000000000000000
+            Size.Width = 379.000000000000000000
+            Size.Height = 311.000000000000000000
+            Size.PlatformDefault = False
+            TabOrder = 0
+            object ListView_Estoque: TListView
+              ItemAppearanceClassName = 'TDynamicAppearance'
+              ItemEditAppearanceClassName = 'TDynamicAppearance'
+              HeaderAppearanceClassName = 'TListHeaderObjects'
+              FooterAppearanceClassName = 'TListHeaderObjects'
+              Align = Client
+              Size.Width = 379.000000000000000000
+              Size.Height = 311.000000000000000000
+              Size.PlatformDefault = False
+              TabOrder = 0
+              ItemAppearanceObjects.ItemObjects.ObjectsCollection = <
+                item
+                  AppearanceObjectName = 'Text1'
+                  AppearanceClassName = 'TTextObjectAppearance'
+                  Appearance.Width = 151.000000000000000000
+                  Appearance.Height = 41.000000000000000000
+                end
+                item
+                  AppearanceObjectName = 'Text2'
+                  AppearanceClassName = 'TTextObjectAppearance'
+                  Appearance.Width = 193.000000000000000000
+                  Appearance.Height = 41.000000000000000000
+                  Appearance.PlaceOffset.X = 150.000000000000000000
+                end>
+              ItemAppearanceObjects.ItemEditObjects.ObjectsCollection = <
+                item
+                  AppearanceObjectName = 'Text1'
+                  AppearanceClassName = 'TTextObjectAppearance'
+                end>
+              OnItemClick = ListView_ProdutosItemClick
+            end
+          end
+          object Rectangle17: TRectangle
+            Align = MostTop
+            Size.Width = 379.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            object Edit_DescricaoEstoque: TEdit
+              Touch.InteractiveGestures = [LongTap, DoubleTap]
+              Align = Left
+              TabOrder = 0
+              TextSettings.Font.Family = 'Verdana'
+              TextSettings.Font.Size = 18.000000000000000000
+              Size.Width = 281.000000000000000000
+              Size.Height = 50.000000000000000000
+              Size.PlatformDefault = False
+              TextPrompt = 'Informe a Descricao'
+              StyledSettings = [Style, FontColor]
+            end
+            object SpeedButton2: TSpeedButton
+              Position.X = 289.000000000000000000
+              Position.Y = 8.000000000000000000
+              Size.Width = 80.000000000000000000
+              Size.Height = 34.000000000000000000
+              Size.PlatformDefault = False
+              Text = 'SpeedButton1'
+            end
+          end
+        end
+        object Rectangle18: TRectangle
+          Align = Bottom
+          Position.Y = 409.000000000000000000
+          Size.Width = 467.000000000000000000
+          Size.Height = 50.000000000000000000
+          Size.PlatformDefault = False
+          object Label15: TLabel
+            Align = Client
+            StyledSettings = [Style, FontColor]
+            Size.Width = 467.000000000000000000
+            Size.Height = 50.000000000000000000
+            Size.PlatformDefault = False
+            TextSettings.Font.Family = 'Verdana'
+            TextSettings.Font.Size = 18.000000000000000000
+            TextSettings.HorzAlign = Center
+            Text = 'lbl_Instrucoes'
+            TabOrder = 0
+          end
+        end
+      end
     end
   end
 end

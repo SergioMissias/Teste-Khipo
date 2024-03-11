@@ -15,6 +15,7 @@ var
     qry : TFDQuery;
     erro : string;
     arrayProdutos : TJSONArray;
+    Produtos : TJSONObject;
 begin
     try
         Pro := TProdutos.Create;
@@ -27,8 +28,9 @@ begin
         qry := Pro.ListarProdutos('', erro);
 
         arrayProdutos := qry.ToJSONArray();
-
-        res.Send<TJSONArray>(arrayProdutos);
+        Produtos := TJSONObject.Create;
+        produtos.AddPair('produtos',arrayProdutos);
+        res.Send<TJSONObject>(produtos);
 
     finally
         qry.Free;
@@ -40,6 +42,7 @@ procedure ListarProdutosID(Req: THorseRequest; Res: THorseResponse; Next: TProc)
 var
     Pro : TProdutos;
     objProdutos: TJSONObject;
+    arrayProdutos :TJsonArray;
     qry : TFDQuery;
     erro : string;
 begin
@@ -56,7 +59,10 @@ begin
 
         if qry.RecordCount > 0 then
         begin
-            objProdutos := qry.ToJSONObject;
+            objProdutos := TJSONObject.Create;
+            arrayProdutos := qry.ToJSONArray;
+            objProdutos.AddPair('produto',arrayProdutos);
+
             res.Send<TJSONObject>(objProdutos)
         end
         else
@@ -115,6 +121,10 @@ begin
     end;
 end;
 
+
+
+
+
 procedure Deleteprodutos(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 var
     Pro : TProdutos;
@@ -153,6 +163,12 @@ begin
     end;
 end;
 
+
+
+
+
+
+
 procedure Editarprodutos(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 var
     Pro : TProdutos;
@@ -172,10 +188,10 @@ begin
         try
             body := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(req.Body), 0) as TJsonValue;
             Pro.Desc := body.GetValue<string>('desc', '');
-            Pro.ID_GrProdutos := body.GetValue<int64>('id_produtos', 0);
+            Pro.ID_GrProdutos := body.GetValue<int64>('idgrprodutos', 0);
             Pro.un := body.GetValue<string>('un', '');
             Pro.Preco := body.GetValue<Double>('preco', 0);
-            Pro.id_Produtos := body.GetValue<int64>('id_produtos', 0);
+            Pro.id_Produtos := body.GetValue<int64>('idprodutos', 0);
             Pro.Editar(erro);
 
             body.Free;
@@ -183,18 +199,20 @@ begin
             if erro <> '' then
                 raise Exception.Create(erro);
 
+
+
+
+//        objProdutos := TJSONObject.Create;
+//        objProdutos.AddPair('id_produto', Pro.id_Produtos.ToString);
+
+        res.Send('Editado').Status(200);
+
         except on ex:exception do
             begin
                 res.Send(ex.Message).Status(400);
                 exit;
             end;
         end;
-
-
-        objProdutos := TJSONObject.Create;
-        objProdutos.AddPair('id_produto', Pro.id_Produtos.ToString);
-
-        res.Send<TJSONObject>(objProdutos).Status(200);
     finally
         Pro.Free;
     end;

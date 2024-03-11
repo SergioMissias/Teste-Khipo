@@ -90,10 +90,10 @@ begin
             Active := false;
             sql.Clear;
             SQL.Add('UPDATE Produtos SET Descricao = :Desc'+
-                                        ',Preco_Venda =: Preco'+
+                                        ',Preco_Venda =:Preco'+
                                         ',Un_Medida =:un '+
                                         ',Id_Grupo_Produto =:ID_GrProdutos');
-            SQL.Add('WHERE ID_Produtos=:ID_Produtos');
+            SQL.Add('WHERE ID_Produto=:ID_Produtos');
             ParamByName('Desc').Value := Desc;
             ParamByName('Preco').Value := Preco;
             ParamByName('un').Value := Un;
@@ -145,7 +145,7 @@ begin
 
             ExecSQL;
 
-            ID_Produtos := FieldByName('Produtos').AsInteger;
+//            ID_Produtos := FieldByName('Produtos').AsInteger;
         end;
 
         qry.Free;
@@ -177,7 +177,7 @@ begin
 
             if ID_Produtos > 0 then
             begin
-                SQL.Add('AND id_Produtos = :ID_Produtos');
+                SQL.Add('AND id_Produto = :ID_Produtos');
                 ParamByName('ID_Produtos').Value := ID_Produtos;
             end;
 

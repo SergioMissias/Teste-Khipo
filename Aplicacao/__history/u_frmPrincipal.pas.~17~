@@ -1,0 +1,275 @@
+unit u_frmPrincipal;
+
+interface
+
+uses
+  System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
+  FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
+  FMX.Edit, FMX.Controls.Presentation, FMX.Objects, FMX.TabControl, FMX.Layouts,
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
+  FMX.ListView;
+
+type
+  TForm4 = class(TForm)
+    Layout1: TLayout;
+    TabControl1: TTabControl;
+    TabItem1: TTabItem;
+    TabItem2: TTabItem;
+    Rectangle1: TRectangle;
+    btnLogin: TButton;
+    edt_Usuario: TEdit;
+    Label1: TLabel;
+    edtSenha: TEdit;
+    Label2: TLabel;
+    EdtLinha: TEdit;
+    Label3: TLabel;
+    Rectangle2: TRectangle;
+    Layout2: TLayout;
+    Rectangle3: TRectangle;
+    Rectangle4: TRectangle;
+    Rectangle5: TRectangle;
+    Label4: TLabel;
+    Label5: TLabel;
+    Label6: TLabel;
+    TabItem3: TTabItem;
+    Rectangle6: TRectangle;
+    Layout3: TLayout;
+    Rectangle7: TRectangle;
+    Rectangle8: TRectangle;
+    Rectangle9: TRectangle;
+    Label7: TLabel;
+    Label8: TLabel;
+    Label9: TLabel;
+    TabItem4: TTabItem;
+    Rectangle10: TRectangle;
+    Layout4: TLayout;
+    Layout5: TLayout;
+    Label10: TLabel;
+    edt_Descricao: TEdit;
+    Layout6: TLayout;
+    Label11: TLabel;
+    edt_Venda: TEdit;
+    Layout7: TLayout;
+    Label12: TLabel;
+    edt_Unidade: TEdit;
+    Layout8: TLayout;
+    Label13: TLabel;
+    Edit2: TEdit;
+    Rectangle11: TRectangle;
+    Label14: TLabel;
+    Rectangle12: TRectangle;
+    lbl_Instrucoes: TLabel;
+    TabItem5: TTabItem;
+    Rectangle13: TRectangle;
+    Layout9: TLayout;
+    Layout13: TLayout;
+    Rectangle15: TRectangle;
+    Label20: TLabel;
+    Rectangle16: TRectangle;
+    Edit6: TEdit;
+    TabItem6: TTabItem;
+    SpeedButton1: TSpeedButton;
+    ListView_Produtos: TListView;
+    procedure btnLoginClick(Sender: TObject);
+    procedure Rectangle3Click(Sender: TObject);
+    procedure Rectangle7Click(Sender: TObject);
+    procedure Rectangle11Click(Sender: TObject);
+    procedure Rectangle8Click(Sender: TObject);
+    procedure Rectangle11MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
+    procedure Rectangle11MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Single);
+    procedure Rectangle4Click(Sender: TObject);
+    procedure ListView_ProdutosItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
+  private
+    procedure EM_PopularListViewProdutos;
+    { Private declarations }
+  public
+    { Public declarations }
+    idProduto:int64;
+  end;
+
+var
+  Form4: TForm4;
+
+implementation
+
+uses
+  System.JSON,DM, REST.Types;
+
+{$R *.fmx}
+
+procedure TForm4.btnLoginClick(Sender: TObject);
+var
+body:TJSONObject;
+json:string;
+begin
+  body := TJSONObject.Create;
+  body.AddPair('email',edt_Usuario.Text);
+  body.AddPair('senha',edtSenha.Text);
+ json := body.ToString;
+ //DM_app.RESTRequest1.ContentType.ctAPPLICATION_JSON;
+ DM_app.RESTReq_Login.Body.ClearBody;
+ DM_app.RESTReq_Login.Method := rmPOST;
+ DM_app.RESTReq_Login.AddBody(body.ToString,ctAPPLICATION_JSON) ;
+ DM_app.RESTReq_Login.Resource := '/loginsenha';
+ DM_app.RESTReq_Login.Execute;
+ if DM_app.RESTReq_Login.Response.StatusCode = 201 then
+    begin
+      Label3.Text := DM_app.RESTReq_Login.Response.StatusText ;
+      TabControl1.GotoVisibleTab(1);
+
+    end;
+
+end;
+
+
+
+
+procedure TForm4.ListView_ProdutosItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
+var
+JsArray : TJSONArray;
+Produto : TJSONObject;
+Json    : String;
+begin
+   DM_app.RESTReqListaProduto.ResetToDefaults;
+   DM_app.RESTReqListaProduto.Method := rmGET;
+   DM_app.RESTReqListaProduto.Resource := '/produtos/'+AItem.Tag.ToString;
+   DM_app.RESTReqListaProduto.Execute;
+   if DM_app.RESTReqListaProduto.Response.StatusCode=200 then
+      begin
+        JsArray := TJSONArray.Create;
+
+        Json         := DM_app.RESTReqListaProduto.Response.JSONValue.ToString;
+        Produto      := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(Json),0) as TJsonObject;
+        JsArray      := Produto.GetValue<TJSONArray>('produto');
+        edt_Descricao.Text := JsArray[0].GetValue<string>('descricao','');
+        edt_Venda.Text     := JsArray[0].GetValue<double>('precoVenda',0).ToString;
+        idProduto :=  JsArray[0].GetValue<int64>('idProduto',0);
+        TabControl1.GotoVisibleTab(3);
+
+      end;
+end;
+
+procedure TForm4.EM_PopularListViewProdutos;
+var
+  JsArray: TJSONArray;
+  json: string;
+  Produtos: TJSONObject;
+  x: Integer;
+begin
+  DM_app.RESTReqListaProduto.ResetToDefaults;
+  DM_app.RESTReqListaProduto.Method := rmGET;
+  DM_app.RESTReqListaProduto.Resource := '/produtos';
+  DM_app.RESTReqListaProduto.Execute;
+  if DM_app.RESTReqListaProduto.Response.StatusCode = 200 then
+  begin
+    JsArray := TJSONArray.Create;
+    Json := DM_app.RESTReqListaProduto.Response.JSONValue.ToString;
+    Produtos := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(Json), 0) as TJsonObject;
+    JsArray := Produtos.GetValue<TJSONArray>('produtos');
+    ListView_Produtos.Items.Clear;
+    ListView_Produtos.BeginUpdate;
+    for x := 0 to JsArray.Size - 1 do
+    begin
+      DM_app.AddProduto(JsArray[x].GetValue<int64>('idProduto', 0), JsArray[x].GetValue<string>('descricao', ''), JsArray[x].GetValue<double>('precoVenda', 0), ListView_Produtos);
+    end;
+    ListView_Produtos.EndUpdate;
+    TabControl1.GotoVisibleTab(4);
+  end;
+end;
+
+procedure TForm4.Rectangle11Click(Sender: TObject);
+var
+body : TJSONObject;
+
+begin
+
+   body := TJSONObject.Create;
+   body.AddPair('desc',edt_Descricao.Text);
+   body.AddPair('id_grprodutos',TJSONNumber.Create(1));
+   body.AddPair('un',edt_Unidade.Text);
+   body.AddPair('preco',TJSONNumber.Create(StrToFloat(edt_Venda.Text)));
+
+   DM_app.RESTReq_GrProduto.ResetToDefaults;
+   DM_app.RESTReq_GrProduto.ClearBody;
+   if idProduto>0 then
+      begin
+         DM_app.RESTReq_GrProduto.Method := rmPOST;
+         DM_app.RESTReq_GrProduto.Resource :='/produtos';
+         DM_app.RESTReq_GrProduto.AddBody(body.ToString,ctAPPLICATION_JSON);
+         DM_app.RESTReq_GrProduto.Execute;
+         if   DM_app.RESTReq_GrProduto.Response.StatusCode = 201 then
+            begin
+              lbl_Instrucoes.Text := 'Registro Incluido!';
+               edt_Descricao.Text := '';
+               edt_Descricao.SetFocus;
+            end
+         else
+            begin
+              lbl_Instrucoes.Text := 'Erro na Inclusao';
+            end;
+
+      end
+   else
+      begin
+         DM_app.RESTReq_GrProduto.Method := rmPUT;
+         DM_app.RESTReq_GrProduto.Resource :='/produtos';
+         DM_app.RESTReq_GrProduto.AddBody(body.ToString,ctAPPLICATION_JSON);
+         DM_app.RESTReq_GrProduto.Execute;
+         if   DM_app.RESTReq_GrProduto.Response.StatusCode = 200 then
+            begin
+              lbl_Instrucoes.Text := 'Registro Alterado!';
+               edt_Descricao.Text := '';
+               edt_Descricao.SetFocus;
+               EM_PopularListViewProdutos;
+               TabControl1.GotoVisibleTab(4)
+            end
+         else
+            begin
+              lbl_Instrucoes.Text := 'Erro na Alteração';
+            end;
+
+
+      end;
+
+end;
+
+procedure TForm4.Rectangle11MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Single);
+begin
+  Rectangle11.Opacity := 0.5;
+end;
+
+procedure TForm4.Rectangle11MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Single);
+begin
+ Rectangle11.Opacity := 1;
+end;
+
+procedure TForm4.Rectangle3Click(Sender: TObject);
+begin
+ TabControl1.GotoVisibleTab(2);
+end;
+
+procedure TForm4.Rectangle4Click(Sender: TObject);
+begin
+   TabControl1.GotoVisibleTab(5);
+end;
+
+procedure TForm4.Rectangle7Click(Sender: TObject);
+begin
+ TabControl1.GotoVisibleTab(3) ;
+end;
+
+procedure TForm4.Rectangle8Click(Sender: TObject);
+
+begin
+  EM_PopularListViewProdutos;
+
+
+end;
+
+end.

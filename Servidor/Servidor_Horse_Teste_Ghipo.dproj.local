@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <BorlandProject>
-  <Transactions>
-    <Transaction>2024/03/10 10:27:47.875,=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
-    <Transaction>2024/03/10 10:28:40.474,=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit5.pas</Transaction>
-    <Transaction>2024/03/10 10:30:02.705,F:\Teste Khipo\Servidor\View\u_ProjetoTesteGhipo.dfm=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit4.dfm</Transaction>
-    <Transaction>2024/03/10 10:30:02.705,F:\Teste Khipo\Servidor\View\u_ProjetoTesteGhipo.pas=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
-    <Transaction>2024/03/10 10:30:20.615,F:\Teste Khipo\Servidor\DAO\u_Dm.dfm=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit5.dfm</Transaction>
-    <Transaction>2024/03/10 10:30:20.615,F:\Teste Khipo\Servidor\DAO\u_Dm.pas=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit5.pas</Transaction>
-    <Transaction>2024/03/10 10:30:42.948,F:\Teste Khipo\Servidor\Servidor_Horse_Teste_Ghipo.dproj=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Project4.dproj</Transaction>
-    <Transaction>2024/03/10 10:34:42.098,=F:\Teste Khipo\Servidor\Controller\Controller.Cliente.pas</Transaction>
-    <Transaction>2024/03/10 10:35:13.370,=F:\Teste Khipo\Servidor\Model\Model.Cliente.pas</Transaction>
-    <Transaction>2024/03/10 10:35:13.417,=F:\Teste Khipo\Servidor\Model\Model.Connection.pas</Transaction>
-    <Transaction>2024/03/10 10:40:36.505,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 10:41:16.567,F:\Teste Khipo\Servidor\Model\Model.CRUD.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 11:28:27.064,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 11:28:48.030,F:\Teste Khipo\Servidor\Controller\Controller.CRUD.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 14:04:09.172,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 14:04:54.103,F:\Teste Khipo\Servidor\Model\Model.Produtos.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 14:06:09.153,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 14:06:44.207,F:\Teste Khipo\Servidor\Controller\Controller.Produtos.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 14:17:35.589,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 14:18:25.818,F:\Teste Khipo\Servidor\Model\Model.LoginSenha.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 14:22:50.950,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 14:23:25.381,F:\Teste Khipo\Servidor\Controller\Controller.LoginSenha.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 14:26:20.468,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 14:26:51.902,F:\Teste Khipo\Servidor\Model\Model.MovimentacoesEstoque.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 14:38:44.153,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
-    <Transaction>2024/03/10 14:39:28.317,F:\Teste Khipo\Servidor\Controller\Controller.MovimentacoesEstoque.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+	<Transactions>
+    <Transaction>2024/03/10 10:27:47.000.875,=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2024/03/10 10:28:40.000.474,=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2024/03/10 10:30:02.000.705,F:\Teste Khipo\Servidor\View\u_ProjetoTesteGhipo.dfm=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit4.dfm</Transaction>
+    <Transaction>2024/03/10 10:30:02.000.705,F:\Teste Khipo\Servidor\View\u_ProjetoTesteGhipo.pas=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit4.pas</Transaction>
+    <Transaction>2024/03/10 10:30:20.000.615,F:\Teste Khipo\Servidor\DAO\u_Dm.dfm=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit5.dfm</Transaction>
+    <Transaction>2024/03/10 10:30:20.000.615,F:\Teste Khipo\Servidor\DAO\u_Dm.pas=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit5.pas</Transaction>
+    <Transaction>2024/03/10 10:30:42.000.948,F:\Teste Khipo\Servidor\Servidor_Horse_Teste_Ghipo.dproj=C:\Users\sergi\OneDrive\Documentos\Embarcadero\Studio\Projects\Project4.dproj</Transaction>
+    <Transaction>2024/03/10 10:34:42.000.098,=F:\Teste Khipo\Servidor\Controller\Controller.Cliente.pas</Transaction>
+    <Transaction>2024/03/10 10:35:13.000.370,=F:\Teste Khipo\Servidor\Model\Model.Cliente.pas</Transaction>
+    <Transaction>2024/03/10 10:35:13.000.417,=F:\Teste Khipo\Servidor\Model\Model.Connection.pas</Transaction>
+    <Transaction>2024/03/10 10:40:36.000.505,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 10:41:16.000.567,F:\Teste Khipo\Servidor\Model\Model.CRUD.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 11:28:27.000.064,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 11:28:48.000.030,F:\Teste Khipo\Servidor\Controller\Controller.CRUD.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 14:04:09.000.172,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 14:04:54.000.103,F:\Teste Khipo\Servidor\Model\Model.Produtos.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 14:06:09.000.153,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 14:06:44.000.207,F:\Teste Khipo\Servidor\Controller\Controller.Produtos.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 14:17:35.000.589,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 14:18:25.000.818,F:\Teste Khipo\Servidor\Model\Model.LoginSenha.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 14:22:50.000.950,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 14:23:25.000.381,F:\Teste Khipo\Servidor\Controller\Controller.LoginSenha.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 14:26:20.000.468,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 14:26:51.000.902,F:\Teste Khipo\Servidor\Model\Model.MovimentacoesEstoque.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 14:38:44.000.153,=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
+    <Transaction>2024/03/10 14:39:28.000.317,F:\Teste Khipo\Servidor\Controller\Controller.MovimentacoesEstoque.pas=F:\Teste Khipo\Servidor\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>

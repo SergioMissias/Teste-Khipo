@@ -5,7 +5,9 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Edit, FMX.Controls.Presentation, FMX.Objects, FMX.TabControl, FMX.Layouts;
+  FMX.Edit, FMX.Controls.Presentation, FMX.Objects, FMX.TabControl, FMX.Layouts,
+  FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
+  FMX.ListView;
 
 type
   TForm4 = class(TForm)
@@ -60,25 +62,23 @@ type
     TabItem5: TTabItem;
     Rectangle13: TRectangle;
     Layout9: TLayout;
-    Layout10: TLayout;
-    Label15: TLabel;
-    Edit1: TEdit;
-    Layout11: TLayout;
-    Label16: TLabel;
-    Edit3: TEdit;
-    Layout12: TLayout;
-    Label17: TLabel;
-    Edit4: TEdit;
     Layout13: TLayout;
-    Label18: TLabel;
-    Edit5: TEdit;
-    Rectangle14: TRectangle;
-    Label19: TLabel;
     Rectangle15: TRectangle;
     Label20: TLabel;
     Rectangle16: TRectangle;
     Edit6: TEdit;
     TabItem6: TTabItem;
+    SpeedButton1: TSpeedButton;
+    ListView_Produtos: TListView;
+    Rectangle14: TRectangle;
+    Layout10: TLayout;
+    Layout11: TLayout;
+    ListView_Estoque: TListView;
+    Rectangle17: TRectangle;
+    Edit_DescricaoEstoque: TEdit;
+    SpeedButton2: TSpeedButton;
+    Rectangle18: TRectangle;
+    Label15: TLabel;
     procedure btnLoginClick(Sender: TObject);
     procedure Rectangle3Click(Sender: TObject);
     procedure Rectangle7Click(Sender: TObject);
@@ -89,10 +89,15 @@ type
     procedure Rectangle11MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Single);
     procedure Rectangle4Click(Sender: TObject);
+    procedure ListView_ProdutosItemClick(const Sender: TObject;
+      const AItem: TListViewItem);
+    procedure FormCreate(Sender: TObject);
   private
+    procedure EM_PopularListViewProdutos;
     { Private declarations }
   public
     { Public declarations }
+    idProduto:int64;
   end;
 
 var
@@ -132,6 +137,65 @@ end;
 
 
 
+procedure TForm4.ListView_ProdutosItemClick(const Sender: TObject;
+  const AItem: TListViewItem);
+var
+JsArray : TJSONArray;
+Produto : TJSONObject;
+Json    : String;
+begin
+   DM_app.RESTReqListaProduto.ResetToDefaults;
+   DM_app.RESTReqListaProduto.Method := rmGET;
+   DM_app.RESTReqListaProduto.Resource := '/produtos/'+AItem.Tag.ToString;
+   DM_app.RESTReqListaProduto.Execute;
+   if DM_app.RESTReqListaProduto.Response.StatusCode=200 then
+      begin
+        JsArray := TJSONArray.Create;
+
+        Json         := DM_app.RESTReqListaProduto.Response.JSONValue.ToString;
+        Produto      := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(Json),0) as TJsonObject;
+        JsArray      := Produto.GetValue<TJSONArray>('produto');
+        edt_Descricao.Text := JsArray[0].GetValue<string>('descricao','');
+        edt_Venda.Text     := JsArray[0].GetValue<double>('precoVenda',0).ToString;
+        idProduto :=  JsArray[0].GetValue<int64>('idProduto',0);
+        TabControl1.GotoVisibleTab(3);
+
+      end;
+end;
+
+procedure TForm4.EM_PopularListViewProdutos;
+var
+  JsArray: TJSONArray;
+  json: string;
+  Produtos: TJSONObject;
+  x: Integer;
+begin
+  DM_app.RESTReqListaProduto.ResetToDefaults;
+  DM_app.RESTReqListaProduto.Method := rmGET;
+  DM_app.RESTReqListaProduto.Resource := '/produtos';
+  DM_app.RESTReqListaProduto.Execute;
+  if DM_app.RESTReqListaProduto.Response.StatusCode = 200 then
+  begin
+    JsArray := TJSONArray.Create;
+    Json := DM_app.RESTReqListaProduto.Response.JSONValue.ToString;
+    Produtos := TJSONObject.ParseJSONValue(TEncoding.UTF8.GetBytes(Json), 0) as TJsonObject;
+    JsArray := Produtos.GetValue<TJSONArray>('produtos');
+    ListView_Produtos.Items.Clear;
+    ListView_Produtos.BeginUpdate;
+    for x := 0 to JsArray.Size - 1 do
+    begin
+      DM_app.AddProduto(JsArray[x].GetValue<int64>('idProduto', 0), JsArray[x].GetValue<string>('descricao', ''), JsArray[x].GetValue<double>('precoVenda', 0), ListView_Produtos);
+    end;
+    ListView_Produtos.EndUpdate;
+    TabControl1.GotoVisibleTab(4);
+  end;
+end;
+
+procedure TForm4.FormCreate(Sender: TObject);
+begin
+ idProduto :=0;
+end;
+
 procedure TForm4.Rectangle11Click(Sender: TObject);
 var
 body : TJSONObject;
@@ -140,27 +204,53 @@ begin
 
    body := TJSONObject.Create;
    body.AddPair('desc',edt_Descricao.Text);
-   body.AddPair('id_grprodutos',TJSONNumber.Create(1));
+   body.AddPair('idgrprodutos',TJSONNumber.Create(1));
    body.AddPair('un',edt_Unidade.Text);
    body.AddPair('preco',TJSONNumber.Create(StrToFloat(edt_Venda.Text)));
+   body.AddPair('idprodutos',TJSONNumber.Create(idProduto));
+
 
    DM_app.RESTReq_GrProduto.ResetToDefaults;
    DM_app.RESTReq_GrProduto.ClearBody;
-   DM_app.RESTReq_GrProduto.Method := rmPOST;
-   DM_app.RESTReq_GrProduto.Resource :='/produtos';
-   DM_app.RESTReq_GrProduto.AddBody(body.ToString,ctAPPLICATION_JSON);
-   DM_app.RESTReq_GrProduto.Execute;
-   if   DM_app.RESTReq_GrProduto.Response.StatusCode = 201 then
+   if idProduto=0 then
       begin
-        lbl_Instrucoes.Text := 'Registro Incluido!';
-         edt_Descricao.Text := '';
-         edt_Descricao.SetFocus;
+         DM_app.RESTReq_GrProduto.Method := rmPOST;
+         DM_app.RESTReq_GrProduto.Resource :='/produtos';
+         DM_app.RESTReq_GrProduto.AddBody(body.ToString,ctAPPLICATION_JSON);
+         DM_app.RESTReq_GrProduto.Execute;
+         if   DM_app.RESTReq_GrProduto.Response.StatusCode = 201 then
+            begin
+              lbl_Instrucoes.Text := 'Registro Incluido!';
+               edt_Descricao.Text := '';
+               edt_Descricao.SetFocus;
+            end
+         else
+            begin
+              lbl_Instrucoes.Text := 'Erro na Inclusao';
+            end;
+
       end
    else
       begin
-        lbl_Instrucoes.Text := 'Erro na Inclusao';
-      end;
+         DM_app.RESTReq_GrProduto.Method := rmPUT;
+         DM_app.RESTReq_GrProduto.Resource :='/produtos';
+         DM_app.RESTReq_GrProduto.AddBody(body.ToString,ctAPPLICATION_JSON);
+         DM_app.RESTReq_GrProduto.Execute;
+         if   DM_app.RESTReq_GrProduto.Response.StatusCode = 200 then
+            begin
+              lbl_Instrucoes.Text := 'Registro Alterado!';
+               edt_Descricao.Text := '';
+               edt_Descricao.SetFocus;
+               EM_PopularListViewProdutos;
+               TabControl1.GotoVisibleTab(4)
+            end
+         else
+            begin
+              lbl_Instrucoes.Text := 'Erro na Alteração';
+            end;
 
+
+      end;
 
 end;
 
@@ -188,12 +278,17 @@ end;
 
 procedure TForm4.Rectangle7Click(Sender: TObject);
 begin
+ idProduto :=0;
  TabControl1.GotoVisibleTab(3) ;
 end;
 
 procedure TForm4.Rectangle8Click(Sender: TObject);
+
 begin
-   TabControl1.GotoVisibleTab(4);
+
+  EM_PopularListViewProdutos;
+
+
 end;
 
 end.
